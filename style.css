@@ -17,6 +17,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden; /* لمنع ظهور شريط تمرير أفقي مزعج على الجوال */
 }
 
 /* القائمة العلوية */
@@ -50,27 +51,28 @@ nav a {
     margin-right: 20px;
     font-weight: 700;
     transition: color 0.3s;
+    font-size: 16px;
 }
 
 nav a:hover {
     color: var(--primary-color);
 }
 
-/* القسم الرئيسي */
+/* القسم الرئيسي (الترحيب) */
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=1000') no-repeat center/cover;
 }
 
 .hero h1 {
-    font-size: 40px;
+    font-size: 32px;
     margin-bottom: 15px;
     color: var(--primary-color);
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 16px;
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
@@ -80,25 +82,26 @@ nav a:hover {
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 30px auto;
 }
 
 section {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 h2 {
-    font-size: 28px;
+    font-size: 24px;
     border-right: 5px solid var(--primary-color);
-    padding-right: 15px;
-    margin-bottom: 30px;
+    padding-right: 12px;
+    margin-bottom: 25px;
 }
 
-/* شبكة الفيديوهات */
+/* شبكة الفيديوهات المتجاوبة */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-content: center;
 }
 
 .video-card {
@@ -106,18 +109,20 @@ h2 {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
 }
 
-.video-container {
-    position: relative;
-    padding-bottom: 177.77%; /* أبعاد الشورتس 9:16 */
-    height: 0;
-    overflow: hidden;
-}
-
+/* حاوية ذكية تضمن ظهور الشورتس بالطول بشكل ممتاز على الجوال */
 .video-container.shorts {
-    max-width: 320px;
-    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 280px; 
+    margin: 15px auto 0 auto;
+    padding-bottom: 140%; /* أبعاد مخصصة لعرض الجوال */
+    height: 0;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .video-container iframe {
@@ -131,28 +136,29 @@ h2 {
 
 .video-info {
     padding: 15px;
+    text-align: center;
 }
 
 .video-info h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 8px;
 }
 
 .video-info p {
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 13px;
 }
 
-/* شبكة التنزيلات */
+/* شبكة التنزيلات المتجاوبة */
 .download-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
 }
 
 .download-card {
     background-color: var(--card-bg);
-    padding: 25px;
+    padding: 20px;
     border-radius: 8px;
     text-align: center;
     border: 1px solid #333;
@@ -160,12 +166,13 @@ h2 {
 }
 
 .download-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .download-desc {
     color: var(--text-secondary);
     margin-top: 10px;
+    font-size: 14px;
 }
 
 .download-btn {
@@ -177,6 +184,7 @@ h2 {
     border-radius: 5px;
     margin-top: 15px;
     font-weight: bold;
+    font-size: 14px;
     transition: background 0.3s;
 }
 
@@ -187,31 +195,61 @@ h2 {
 /* حول الموقع والمحتوى النصي */
 .about-content {
     background-color: var(--card-bg);
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
     color: var(--text-secondary);
+    font-size: 15px;
 }
 
 .about-content p {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 /* سياسة الخصوصية */
 .policy-box {
     background-color: #1a1a1a;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text-secondary);
-    border-right: 3px solid #666;
+    border-right: 4px solid #666;
 }
 
 /* الفوتر */
 footer {
     background-color: var(--card-bg);
     text-align: center;
-    padding: 20px 0;
-    margin-top: 80px;
+    padding: 15px 0;
+    margin-top: 60px;
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 13px;
 }
+
+/* 📱 شروط الشاشات الصغيرة والجوالات (Media Queries) */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column; /* ترتيب اللوجو والأزرار تحت بعض لتوفير مساحة */
+        gap: 10px;
+    }
+    
+    nav a {
+        margin: 0 8px; /* تقريب المسافات على شاشة الجوال الضيقة */
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+    
+    .video-grid, .download-grid {
+        grid-template-columns: 1fr; /* جعل الفيديوهات وباقات التحميل تترتب عمودياً بشكل مريح جداً للعين */
+    }
+        }
