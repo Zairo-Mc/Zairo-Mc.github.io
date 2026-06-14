@@ -229,12 +229,12 @@ footer {
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: row; /* ترتيب اللوجو والأزرار جنب بعض لتوفير مساحة */
-        gap: 10px;
+        gap: 5px;
     }
     
     nav a {
         margin: 0 8px; /* تقريب المسافات على شاشة الجوال الضيقة */
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .hero h1 {
