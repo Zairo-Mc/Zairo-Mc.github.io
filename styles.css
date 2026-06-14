@@ -1,58 +1,217 @@
-body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: #8585a9c8; color: #333; scroll-behavior: smooth; }
-
-/* النافبار ثابتة */
-nav { 
-    background-color: #2c3e50; padding: 15px; position: sticky; top: 0; z-index: 1000; 
-    display: flex; justify-content: center; gap: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --primary-color: #4caf50;
+    --text-color: #ffffff;
+    --text-secondary: #b3b3b3;
 }
-nav a { color: white; text-decoration: none; font-weight: bold; }
-nav a:hover { color: #3498db; }
 
-/* الحاوية الرئيسية */
-.main-content { max-width: 900px; margin: 20px auto; padding: 20px; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal', sans-serif;
+}
 
-/* تصميم الصناديق */
-.box { 
-    background: rgb(255, 255, 255); 
-    padding: 40px; 
-    margin-bottom: 20px; 
-    border-radius: 15px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* القائمة العلوية */
+header {
+    background-color: var(--card-bg);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* القسم الرئيسي */
+.hero {
     text-align: center;
-    border-right: 5px solid #3498db; /* لمسة جمالية جانبية */
+    padding: 80px 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1607988795691-3d0147b43231?q=80&w=1000') no-repeat center/cover;
 }
 
-/* تلوين الصندوق الرئيسي الأول */
-#home { background: linear-gradient(135deg, #3498db, #2c3e50); color: white; border: none; }
-
-footer { text-align: center; padding: 20px; color: #000000; }
-
-/* تجاوب الشاشات */
-@media (max-width: 600px) {
-    nav { gap: 10px; font-size: 14px; }
-    .box { padding: 20px; }
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
 }
 
-#footer { background-color: #ffffff;
-          padding: 10px 15px;
-          border-radius: 30px;
-          text-align: center;
-          margin: 30px 40px auto;
-          font-weight: bold;
-          font-size: 0.85rem;
-        }
+.hero p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
 
+/* الحاوية العامة للأقسام */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
 
-.video-link { 
-              background-color: #333;
-              color: #1ac61a;
-              padding: 10px 20px;
-              border-radius: 8px;
-              text-decoration: none;
-              display: inline-block;
-              font-weight: bold;
-            }
+section {
+    margin-bottom: 60px;
+}
 
-.video-link:hover {
-       background-color: #3d6a3d;
-             }
+h2 {
+    font-size: 28px;
+    border-right: 5px solid var(--primary-color);
+    padding-right: 15px;
+    margin-bottom: 30px;
+}
+
+/* شبكة الفيديوهات */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.video-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 177.77%; /* أبعاد الشورتس 9:16 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container.shorts {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 15px;
+}
+
+.video-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.video-info p {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* شبكة التنزيلات */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.download-card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+    transition: transform 0.3s;
+}
+
+.download-card:hover {
+    transform: translateY(-5px);
+}
+
+.download-desc {
+    color: var(--text-secondary);
+    margin-top: 10px;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #388e3c;
+}
+
+/* حول الموقع والمحتوى النصي */
+.about-content {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    color: var(--text-secondary);
+}
+
+.about-content p {
+    margin-bottom: 15px;
+}
+
+/* سياسة الخصوصية */
+.policy-box {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    border-right: 3px solid #666;
+}
+
+/* الفوتر */
+footer {
+    background-color: var(--card-bg);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 80px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
