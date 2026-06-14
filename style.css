@@ -228,7 +228,7 @@ footer {
 /* 📱 شروط الشاشات الصغيرة والجوالات (Media Queries) */
 @media (max-width: 768px) {
     .nav-container {
-        flex-direction: column; /* ترتيب اللوجو والأزرار تحت بعض لتوفير مساحة */
+        flex-direction: row; /* ترتيب اللوجو والأزرار جنب بعض لتوفير مساحة */
         gap: 10px;
     }
     
